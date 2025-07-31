@@ -45,6 +45,24 @@
             margin-top: -20px;
             box-shadow: 0 4px 16px rgba(173,20,87,0.12);
         }
+        .banner {
+            width: 100vw;
+            background: linear-gradient(90deg,#ffe0ec,#ff99cb,#ffe0ec);
+            color: #d72660;
+            text-align: center;
+            padding: 22px 0 18px 0;
+            font-size: 2.4em;
+            font-family: 'Pacifico', 'Comic Sans MS', cursive, sans-serif;
+            letter-spacing: 3px;
+            font-weight: bold;
+            border-bottom: 4px solid #ff93cb;
+            box-shadow: 0 6px 24px 0 rgba(255,150,200,0.13);
+            position: relative;
+            z-index: 10;
+        }
+        .banner span {
+            text-shadow: 1px 2px 5px #fff, 2px 4px 10px #ffb4e2;
+        }
         /* Style the audio controls to be subtle */
         audio {
             margin-top: 36px;
@@ -52,6 +70,9 @@
     </style>
 </head>
 <body>
+    <div class="banner">
+    <span>🎉 HAPPY BIRTHDAY ELY 🎉</span>
+  </div>
     <audio id="bg-music" controls autoplay loop>
         <source src="birthday-song.mp3" type="audio/mp3">
         Your browser does not support the audio element.

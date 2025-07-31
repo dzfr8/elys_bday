@@ -75,21 +75,7 @@
     </div>
 
     <script>
-        // Allow user to upload and show a new photo above the cake on clicking the image
-        document.getElementById('friend-img').addEventListener('click', function () {
-            let input = document.createElement('input');
-            input.type = 'file';
-            input.accept = 'image/*';
-            input.onchange = e => {
-                let file = e.target.files[0];
-                let reader = new FileReader();
-                reader.onload = function (event) {
-                    document.getElementById('friend-img').src = event.target.result;
-                };
-                reader.readAsDataURL(file);
-            };
-            input.click();
-        });
+       
 
         // Attempt to autoplay music, fallback if blocked by browser
         window.onload = function() {

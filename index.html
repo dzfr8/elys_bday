@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Surprise!!</title>
+    <style>
+        body {
+            background: pink;
+            margin: 0;
+            font-family: 'Segoe UI', sans-serif;
+            text-align: center;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .container {
+            margin-top: 50px;
+        }
+        .note {
+            font-size: 1.5em;
+            margin-bottom: 40px;
+            color: #ad1457;
+            background: rgba(255,255,255,0.7);
+            display: inline-block;
+            padding: 20px 40px;
+            border-radius: 15px;
+            max-width: 600px;
+        }
+        .photo-spot {
+            margin-bottom: 20px;
+        }
+        .friend-photo {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            border: 5px solid #fff;
+            object-fit: cover;
+            box-shadow: 0 8px 30px rgba(173,20,87,0.2);
+            background: #fff;
+            cursor: pointer;
+        }
+        .birthday-cake {
+            width: 250px;
+            margin-top: -20px;
+            box-shadow: 0 4px 16px rgba(173,20,87,0.12);
+        }
+        /* Style the audio controls to be subtle */
+        audio {
+            margin-top: 36px;
+        }
+    </style>
+</head>
+<body>
+    <audio id="bg-music" controls autoplay loop>
+        <source src="birthday-song.mp3" type="audio/mp3">
+        Your browser does not support the audio element.
+    </audio>
+
+    <div class="container">
+        <div class="note">
+            Happy Birthday to you Ely! <br>
+            Your kindness, laughter, and vibrance light up every room. 
+            On this special day, I hope your heart fills with the same joy that you bring to everyone around you.
+            Wishing you an unforgettable year ahead. Thank you for being you — happy birthday!
+        </div>
+        <div class="photo-spot">
+            <!-- Replace the 'your-friend.jpg' with your friend's photo -->
+            <img src="your-friend.jpg" alt="Friend's Photo" class="friend-photo" id="friend-img" title="Click to change photo">
+        </div>
+        <img src="https://cdn-icons-png.flaticon.com/512/447/447901.png" alt="Birthday Cake" class="birthday-cake">
+        <div style="margin-top:20px; color:#ad1457;">
+            Date: <strong>August 1</strong>
+        </div>
+    </div>
+
+    <script>
+        // Allow user to upload and show a new photo above the cake on clicking the image
+        document.getElementById('friend-img').addEventListener('click', function () {
+            let input = document.createElement('input');
+            input.type = 'file';
+            input.accept = 'image/*';
+            input.onchange = e => {
+                let file = e.target.files[0];
+                let reader = new FileReader();
+                reader.onload = function (event) {
+                    document.getElementById('friend-img').src = event.target.result;
+                };
+                reader.readAsDataURL(file);
+            };
+            input.click();
+        });
+
+        // Attempt to autoplay music, fallback if blocked by browser
+        window.onload = function() {
+            var music = document.getElementById('bg-music');
+            var playPromise = music.play();
+            if (playPromise !== undefined) {
+                playPromise.catch(function() {
+                    alert("Click play on the music controls for the birthday tune!");
+                });
+            }
+        };
+    </script>
+</body>
+</html>
